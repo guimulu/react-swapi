@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-
   margin-top: 50px;
 `;
 
@@ -14,10 +13,8 @@ export const Card = styled.div`
   background: #060606;
   border-radius: 3px;
   margin: 10px 10px;
-
   display: flex;
   flex-direction: column;
-
 
   header {
     height: 86px;

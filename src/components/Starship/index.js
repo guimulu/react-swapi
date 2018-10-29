@@ -1,11 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import { Container, Card } from './styles';
 
 
 const Starship = ({starship}) => (
   <Container>
-    { starship.results.map(item => (
+      {starship.map(item => (
       <Card key={item.name}>
         <header>
           <strong>{item.name}</strong>
@@ -20,7 +19,7 @@ const Starship = ({starship}) => (
           <li>
             Manufacturer:&nbsp;
             <small>
-              {item.manufacturer}kg
+              {item.manufacturer}
             </small>
           </li>
           <li>
