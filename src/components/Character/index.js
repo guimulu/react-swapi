@@ -175,7 +175,7 @@ export default class Character extends Component {
             </ul>
           </Card>
         )) }
-        <Modal showCloseIcon={false} open={open} onClose={this.onCloseModal} center>
+        <Modal open={open} onClose={this.onCloseModal} center>
           <h2>Starships description</h2>
           <Starship starship={this.state.starship} />
         </Modal>
