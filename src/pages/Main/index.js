@@ -26,6 +26,11 @@ export default class Main extends Component {
   handlePeople = async () => {
     try {
       const { data : people } = await api.get(`/people/`);
+      await Promise.all(people.results.map(async item => (
+        api.get(`${item.species}`).then(response => {
+          item.species = response.data.name;
+        })
+      )));
 
       this.setState({
         people: people,
@@ -40,8 +45,13 @@ export default class Main extends Component {
     try {
       if (this.state.people.next != null) {
         const response = await axios.get(`${this.state.people.next}`);
-        console.log(response.data);
-         this.setState({
+        await Promise.all(response.data.results.map(async item => (
+          api.get(`${item.species}`).then(response => {
+            item.species = response.data.name;
+          })
+        )));
+
+        this.setState({
            people: response.data
         });
       }
@@ -59,8 +69,13 @@ export default class Main extends Component {
     try {
       if (this.state.people.previous != null) {
         const response = await axios.get(`${this.state.people.previous}`);
-        console.log(response.data);
-         this.setState({
+        await Promise.all(response.data.results.map(async item => (
+          api.get(`${item.species}`).then(response => {
+            item.species = response.data.name;
+          })
+        )));
+
+        this.setState({
            people: response.data
         });
       }

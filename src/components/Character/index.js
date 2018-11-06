@@ -4,88 +4,6 @@ import Starship from '../../components/Starship';
 import Modal from 'react-responsive-modal';
 import axios from 'axios';
 
-const getSpecie = (species) => {
-  const specie = species.toString().substring(29, 31);
-  switch (specie) {
-    case '1/':
-      return 'Human';
-    case '2/':
-      return 'Droid';
-    case '3/':
-      return 'Wookiee';
-    case '4/':
-      return 'Rodian';
-    case '5/':
-      return 'Hutt';
-    case '6/':
-      return 'Yoda\'s species';
-    case '7/':
-      return 'Trandoshan';
-    case '8/':
-      return 'Mon Calamari';
-    case '9/':
-      return 'Ewok';
-    case '10':
-      return 'Sullustan';
-    case '11':
-      return 'Neimodian';
-    case '12':
-      return 'Gungan';
-    case '13':
-      return 'Toydarian';
-    case '14':
-      return 'Dug';
-    case '15':
-      return 'Twi\'lek';
-    case '16':
-      return 'Aleena';
-    case '17':
-      return 'Vulptereen';
-    case '18':
-      return 'Xexto';
-    case '19':
-      return 'Toong';
-    case '20':
-      return 'Cerean';
-    case '21':
-      return 'Nautolan';
-    case '22':
-      return 'Zabrak';
-    case '23':
-      return 'Tholothian';
-    case '24':
-      return 'Iktotchi';
-    case '25':
-      return 'Quermian';
-    case '26':
-      return 'Kel Dor';
-    case '27':
-      return 'Chagrian';
-    case '28':
-      return 'Geonosian';
-    case '29':
-      return 'Mirialan';
-    case '30':
-      return 'Clawdite';
-    case '31':
-      return 'Besalisk';
-    case '32':
-      return 'Kaminoan';
-    case '33':
-      return 'Skakoan';
-    case '34':
-      return 'Muun';
-    case '35':
-      return 'Togruta';
-    case '36':
-      return 'Kaleesh';
-    case '37':
-      return 'Pau\'an';
-    default:
-      return 'n/a';
-  }
-}
-
 export default class Character extends Component {
   state = {
     open: false,
@@ -169,7 +87,7 @@ export default class Character extends Component {
               <li>
                 Species:&nbsp;
                 <small>
-                  { getSpecie(item.species) }
+                  { item.species }
                 </small>
               </li>
             </ul>
